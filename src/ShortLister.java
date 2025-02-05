@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.io.*;
 import java.util.Scanner;
 
+
 public class ShortLister {
     public static void main(String[] args) {
         JFileChooser fileChooser = new JFileChooser();
@@ -14,8 +15,9 @@ public class ShortLister {
             try (Scanner scanner = new Scanner(file)) {
                 while (scanner.hasNext()) {
                     String word = scanner.next();
+
                     if (filter.accept(word)) {
-                        System.out.println(word);
+                        System.out.println("Accepted: " + word);
                     }
                 }
             } catch (FileNotFoundException e) {

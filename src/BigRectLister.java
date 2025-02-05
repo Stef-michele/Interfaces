@@ -2,7 +2,7 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public class BigRectLister {
-    public ArrayList<Rectangle> getBigRectangles() {
+    public static void main(String[] args) {
         ArrayList<Rectangle> rectangles = new ArrayList<>();
         rectangles.add(new Rectangle(1, 2));  // Perimeter 6
         rectangles.add(new Rectangle(3, 4));  // Perimeter 14
@@ -16,13 +16,13 @@ public class BigRectLister {
         rectangles.add(new Rectangle(1, 4));  // Perimeter 10
 
         Filter filter = new BigRectangleFilter();
-        ArrayList<Rectangle> bigRectangles = new ArrayList<>();
 
+        System.out.println("Rectangles with a perimeter > 10");
         for (Rectangle rect : rectangles) {
             if (filter.accept(rect)) {
-                bigRectangles.add(rect);
+                System.out.println("Rectangle [width=" + rect.width + ", height=" + rect.height + ", perimeter=" + (2 * (rect.width + rect.height)) + "]");
             }
         }
-        return bigRectangles;
+
     }
 }
